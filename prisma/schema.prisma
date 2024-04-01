@@ -1,0 +1,63 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model articles {
+  id                     Int             @id @default(autoincrement())
+  title                  String          @db.VarChar
+  published_date         DateTime        @db.Timestamptz(6)
+  crawled_date           DateTime        @db.Timestamptz(6)
+  comment_close_date     DateTime?       @db.Timestamptz(6)
+  source                 articlesource
+  is_closed_for_comments Boolean
+  num_comments           Int?
+  permalink              String          @db.VarChar
+  guardian_short_url     String?         @db.VarChar
+  articles_tags          articles_tags[]
+  comments               comments[]
+}
+
+model articles_tags {
+  id         Int      @id @default(autoincrement())
+  article_id Int
+  tag_id     Int
+  articles   articles @relation(fields: [article_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  tags       tags     @relation(fields: [tag_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
+}
+
+model comments {
+  id                 Int        @id @default(autoincrement())
+  body               String     @db.VarChar
+  permalink          String     @db.VarChar
+  date               DateTime   @db.Timestamptz(6)
+  author_name        String     @db.VarChar
+  source_id          String     @db.VarChar
+  parent_guardian_id Int?
+  parent_id          Int?
+  article_id         Int
+  articles           articles   @relation(fields: [article_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  comments           comments?  @relation("commentsTocomments", fields: [parent_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  other_comments     comments[] @relation("commentsTocomments")
+}
+
+model tags {
+  id            Int             @id @default(autoincrement())
+  name          String          @db.VarChar
+  permalink     String          @db.VarChar
+  articles_tags articles_tags[]
+}
+
+model users {
+  id       Int    @id @default(autoincrement())
+  username String @db.VarChar
+}
+
+enum articlesource {
+  GUARDIAN
+  TORDOTCOM
+}
