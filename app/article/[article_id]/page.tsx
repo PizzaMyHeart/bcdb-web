@@ -14,7 +14,15 @@ export default async function article({ params }) {
         FROM comments c
         JOIN comment_tree ct ON c.parent_id = ct.id
         )
-        SELECT id, parent_id, author_name, replying_to, body, depth FROM comment_tree ORDER BY path;`
+        SELECT id, parent_id, author_name, replying_to, body, depth FROM comment_tree ORDER BY path;`;
+    function depthPad (depth: number) {
+        switch (depth) {
+            case 0:
+                return "pl-0"
+            case 1:
+                return "pl-[50px]"
+        }
+    }
     return (
         <div>
             <h1>Article {articles[0].id}</h1>
@@ -32,7 +40,7 @@ export default async function article({ params }) {
         <div>
             {comments.map(comment => {
                 return (
-                    <div key={comment.id}>
+                    <div className={depthPad(comment.depth)} key={comment.id}>
                         <p>{comment.author_name} (replying to {comment.replying_to})</p>
                         <div className="pl-4" dangerouslySetInnerHTML={{ __html: comment.body}}></div>
                         <br/>
