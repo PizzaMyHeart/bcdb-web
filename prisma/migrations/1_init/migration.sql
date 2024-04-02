@@ -29,13 +29,12 @@ CREATE TABLE "articles_tags" (
 -- CreateTable
 CREATE TABLE "comments" (
     "id" SERIAL NOT NULL,
+    "guardian_id" INTEGER NOT NULL,
     "body" VARCHAR NOT NULL,
     "permalink" VARCHAR NOT NULL,
     "date" TIMESTAMPTZ(6) NOT NULL,
     "author_name" VARCHAR NOT NULL,
-    "source_id" VARCHAR NOT NULL,
     "parent_guardian_id" INTEGER,
-    "parent_id" INTEGER,
     "article_id" INTEGER NOT NULL,
 
     CONSTRAINT "comments_pkey" PRIMARY KEY ("id")
@@ -58,6 +57,9 @@ CREATE TABLE "users" (
     CONSTRAINT "users_pkey" PRIMARY KEY ("id")
 );
 
+-- CreateIndex
+CREATE UNIQUE INDEX "comments_guardian_id_key" ON "comments"("guardian_id");
+
 -- AddForeignKey
 ALTER TABLE "articles_tags" ADD CONSTRAINT "articles_tags_article_id_fkey" FOREIGN KEY ("article_id") REFERENCES "articles"("id") ON DELETE NO ACTION ON UPDATE NO ACTION;
 
@@ -68,5 +70,5 @@ ALTER TABLE "articles_tags" ADD CONSTRAINT "articles_tags_tag_id_fkey" FOREIGN K
 ALTER TABLE "comments" ADD CONSTRAINT "comments_article_id_fkey" FOREIGN KEY ("article_id") REFERENCES "articles"("id") ON DELETE NO ACTION ON UPDATE NO ACTION;
 
 -- AddForeignKey
-ALTER TABLE "comments" ADD CONSTRAINT "comments_parent_id_fkey" FOREIGN KEY ("parent_id") REFERENCES "comments"("id") ON DELETE NO ACTION ON UPDATE NO ACTION;
+ALTER TABLE "comments" ADD CONSTRAINT "comments_parent_guardian_id_fkey" FOREIGN KEY ("parent_guardian_id") REFERENCES "comments"("guardian_id") ON DELETE NO ACTION ON UPDATE NO ACTION;
 

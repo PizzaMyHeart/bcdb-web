@@ -32,16 +32,15 @@ model articles_tags {
 
 model comments {
   id                 Int        @id @default(autoincrement())
+  guardian_id        Int        @unique
   body               String     @db.VarChar
   permalink          String     @db.VarChar
   date               DateTime   @db.Timestamptz(6)
   author_name        String     @db.VarChar
-  source_id          String     @db.VarChar
   parent_guardian_id Int?
-  parent_id          Int?
   article_id         Int
   articles           articles   @relation(fields: [article_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
-  comments           comments?  @relation("commentsTocomments", fields: [parent_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  comments           comments?  @relation("commentsTocomments", fields: [parent_guardian_id], references: [guardian_id], onDelete: NoAction, onUpdate: NoAction)
   other_comments     comments[] @relation("commentsTocomments")
 }
 
