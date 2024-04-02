@@ -67,7 +67,7 @@ export default async function article({ params }) {
   
     return (
         <div>
-            <h1>Article {articles[0].id}</h1>
+            <h1>Articles</h1>
         {articles.map(article => {
             return (
                 <div key={article.id}>
