@@ -20,24 +20,18 @@ export default function Navbar() {
             <NavigationMenuList>
               <NavigationMenuItem>
                 <Link href="/">
-                  <NavigationMenuLink>
                     Home
-                  </NavigationMenuLink>
                 </Link>
                     
                 </NavigationMenuItem>
                 <NavigationMenuItem>
                   <Link href="/article/all">
-                    <NavigationMenuLink>
                       Articles
-                    </NavigationMenuLink>
                   </Link>
                 </NavigationMenuItem>
                 <NavigationMenuItem>
                   <Link href="/tag/all">
-                    <NavigationMenuLink>
                       Tags
-                    </NavigationMenuLink>
                   </Link>
                 </NavigationMenuItem>
             </NavigationMenuList>

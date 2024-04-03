@@ -12,32 +12,23 @@ export default async function allArticlesDescCommentCount({ params }) {
         const articles = await prisma.$queryRawUnsafe(`WITH counts AS (SELECT article_id, COUNT(*) AS row_count FROM comments GROUP BY article_id ORDER BY row_count DESC) SELECT articles.*, counts.row_count AS comment_count FROM articles JOIN counts ON articles.id = counts.article_id ORDER BY counts.row_count DESC;`);
 
         const data = []
-        //return [{"title": "test1"}, {"title": "test2"}]
         articles.map(article => {
             data.push(
                 {
-                    "title": article["title"],
                     "comments": article["comment_count"],
-                    "date": article["published_date"].toLocaleString()
+                    "title": article["title"],
+                    "date": article["published_date"].toLocaleString(),
+                    "article_id": article["id"]
                 }
             )
             
         });
         return data
-        return [
-          {
-            id: "728ed52f",
-            amount: 100,
-            status: "pending",
-            email: "m@example.com",
-          },
-          // ...
-        ]
       }
     const data = await getData();
     console.log(data)
     const tag_id = parseInt(params.tag_id);
-    const articles = await prisma.$queryRawUnsafe(`WITH counts AS (SELECT article_id, COUNT(*) AS row_count FROM comments GROUP BY article_id ORDER BY row_count DESC) SELECT articles.*, counts.row_count AS comment_count FROM articles JOIN counts ON articles.id = counts.article_id ORDER BY counts.row_count DESC;`);
+    //const articles = await prisma.$queryRawUnsafe(`WITH counts AS (SELECT article_id, COUNT(*) AS row_count FROM comments GROUP BY article_id ORDER BY row_count DESC) SELECT articles.*, counts.row_count AS comment_count FROM articles JOIN counts ON articles.id = counts.article_id ORDER BY counts.row_count DESC;`);
     //const tag = await prisma.tags.findFirst({where: {id: {equals: tag_id}}})
 
     return (
