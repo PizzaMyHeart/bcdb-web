@@ -1,6 +1,8 @@
 import prisma from "@/app/lib/prisma";
+import { useEffect } from "react";
 
-export default async function article({ params }) {
+export default async function Article({ params }) {
+
     const article_id = parseInt(params.article_id);
     const articles = await prisma.$queryRaw`WITH counts AS (SELECT article_id, COUNT(*) AS row_count FROM comments GROUP BY article_id) SELECT articles.*, counts.row_count AS comment_count FROM articles JOIN counts ON articles.id = counts.article_id WHERE articles.id=${article_id};`;
     //const comments = await prisma.comments.findMany({where: {article_id: article_id}})
@@ -66,8 +68,8 @@ export default async function article({ params }) {
 
   
     return (
-        <div>
-            <h1>Articles</h1>
+        <div className="px-4">
+            <div>Articles</div>
         {articles.map(article => {
             return (
                 <div key={article.id}>

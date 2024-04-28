@@ -40,8 +40,9 @@ export default async function allArticlesDescCommentCount({ params }) {
     //const articles = await prisma.$queryRawUnsafe(`WITH counts AS (SELECT article_id, COUNT(*) AS row_count FROM comments GROUP BY article_id ORDER BY row_count DESC) SELECT articles.*, counts.row_count AS comment_count FROM articles JOIN counts ON articles.id = counts.article_id ORDER BY counts.row_count DESC;`);
     //const tag = await prisma.tags.findFirst({where: {id: {equals: tag_id}}})
 
+
     return (
-        <div>
+        <div className="px-4">
             <h1>All articles</h1>
             
             <div className="container mx-auto py-10">

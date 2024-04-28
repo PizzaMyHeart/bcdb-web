@@ -16,20 +16,20 @@ import {
 
 export default function Navbar() {
     return (
-        <NavigationMenu>
+        <NavigationMenu className="px-8">
             <NavigationMenuList>
-              <NavigationMenuItem>
+              <NavigationMenuItem className="p-4 hover:underline">
                 <Link href="/">
                     Home
                 </Link>
                     
                 </NavigationMenuItem>
-                <NavigationMenuItem>
+                <NavigationMenuItem className="p-4 hover:underline">
                   <Link href="/article/all">
                       Articles
                   </Link>
                 </NavigationMenuItem>
-                <NavigationMenuItem>
+                <NavigationMenuItem className="p-4 hover:underline">
                   <Link href="/tag/all">
                       Tags
                   </Link>
