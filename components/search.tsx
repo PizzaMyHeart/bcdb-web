@@ -16,6 +16,9 @@ const Search = () => (
     <SearchBox 
         placeholder="Search comments ...."
         autoFocus={true}
+        classNames={{
+            input: "block w-full pl-9 pr-3 py-2 bg-white border border-slate-300 placeholder-slate-400 focus:outline-none focus:border-sky-500 focus:ring-sky-500 rounded-md focus:ring-1"
+        }}
         />
     <Stats />
     <InfiniteHits hitComponent={Hit} />
@@ -35,7 +38,8 @@ const Hit = ({ hit }) => (
         <div className="py-8">
             <Highlight attribute="body" hit={hit} />
         </div>
-        <div><a href={`/article/${hit.article_id}`}>See all comments</a></div>
+        <div><a href={`/comment/${hit.id}`} target="_blank">View thread</a></div>
+        <div><a href={`/article/${hit.article_id}`} target="_blank">See all comments</a></div>
         <hr className="mt-6"/>
     </div>
   );
