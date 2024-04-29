@@ -5,10 +5,10 @@ export default function Comments({comments}) {
             {comments.map(comment => {
                 return (
                     <div className={depthPad(comment.depth)} key={comment.id}>
-                        <p>{depthPad(comment.depth)} || {comment.depth}</p>
-                        <p>{comment.guardian_id}</p>
+                        {/*<p>{depthPad(comment.depth)} || {comment.depth}</p>*/}
+                        {/*<p>{comment.guardian_id}</p>*/}
                         <p>{comment.author_name} (replying to {comment.replying_to} {comment.parent_guardian_id})</p>
-                        <div className="pl-4" dangerouslySetInnerHTML={{ __html: comment.body}}></div>
+                        <div className="pl-4 border-l-2" dangerouslySetInnerHTML={{ __html: comment.body}}></div>
                         <br/>
                     </div>
                 )
