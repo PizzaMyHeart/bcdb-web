@@ -1,6 +1,6 @@
 import prisma from "@/app/lib/prisma";
-import { useEffect } from "react";
 import Comments from "@/components/comments";
+import ArticleHeader from "@/components/articleHeader";
 
 export default async function Article({ params }) {
 
@@ -21,18 +21,7 @@ export default async function Article({ params }) {
   
     return (
         <div className="px-4">
-            <div>Articles</div>
-        {articles.map(article => {
-            return (
-                <div key={article.id}>
-                    <p>{article.title}</p>
-                    <p>{article.published_date.toLocaleString()}</p>
-                    <p>{article.comment_count.toString()} comments</p>
-                    <a href={article.permalink} target="_blank">View original</a>
-                </div>
-            )
-            
-        })}
+        <ArticleHeader articles={articles}/>
         <Comments comments={comments}/>
         </div>
     );

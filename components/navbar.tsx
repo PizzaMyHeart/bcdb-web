@@ -1,4 +1,4 @@
-"use client";
+"use client"
 
 import Link from "next/link";
 import {
@@ -11,29 +11,18 @@ import {
     NavigationMenuTrigger,
     navigationMenuTriggerStyle,
     NavigationMenuViewport,
-  } from "@/components/ui/navigation-menu"
+  } from "@/components/ui/navigation-menu";
+import NavItem from "./navitem";
   
 
 export default function Navbar() {
     return (
         <NavigationMenu className="px-8">
             <NavigationMenuList>
-              <NavigationMenuItem className="p-4 hover:underline">
-                <Link href="/">
-                    Home
-                </Link>
-                    
-                </NavigationMenuItem>
-                <NavigationMenuItem className="p-4 hover:underline">
-                  <Link href="/article/all">
-                      Articles
-                  </Link>
-                </NavigationMenuItem>
-                <NavigationMenuItem className="p-4 hover:underline">
-                  <Link href="/tag/all">
-                      Tags
-                  </Link>
-                </NavigationMenuItem>
+                <NavItem href="/" innerText="Home"/>
+                <NavItem href="/article/all" innerText="Articles"/>
+                <NavItem href="/tag/all" innerText="Tags"/>
+                <NavItem href="/about" innerText="About"/>
             </NavigationMenuList>
         </NavigationMenu>
     )
