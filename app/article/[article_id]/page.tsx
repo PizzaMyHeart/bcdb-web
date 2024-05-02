@@ -1,6 +1,6 @@
 import prisma from "@/app/lib/prisma";
-import Comments from "@/components/comments";
-import ArticleHeader from "@/components/articleHeader";
+import Comments from "@/components/Comments";
+import ArticleHeader from "@/components/ArticleHeader";
 
 export default async function Article({ params }) {
 
