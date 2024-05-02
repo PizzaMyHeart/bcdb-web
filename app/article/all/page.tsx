@@ -99,7 +99,8 @@ export default async function allArticlesDescCommentCount({ params }) {
 
 const ArticleHit = ({hit}) => (
     <div key={hit.id} className="py-4">
-        <h1 className="text-3xl"><a href={`/article/${hit.id}`} className="no-underline">{hit.title}</a></h1>
+        <h1 className="text-3xl"><a href={`/article/${hit.id}`} className="no-underline"><Highlight attribute="title" hit={hit}/></a></h1>
+        
         <p className="mx-4">{hit.num_comments} comments</p>
         <div>{new Date(hit.published_date * 1000).toDateString()}</div>
     
