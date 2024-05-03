@@ -5,6 +5,7 @@ import ArticleHeader from "@/components/ArticleHeader";
 export default async function Article({ params }) {
 
     const articleId = parseInt(params.article_id);
+    console.log(articleId)
     //const articles = await prisma.$queryRaw`WITH counts AS (SELECT article_id, COUNT(*) AS row_count FROM comments GROUP BY article_id) SELECT articles.*, counts.row_count AS comment_count FROM articles JOIN counts ON articles.id = counts.article_id WHERE articles.id=${article_id};`;
     //const comments = await prisma.comments.findMany({where: {article_id: article_id}})
     const comments = await prisma.$queryRaw`WITH RECURSIVE comment_tree AS (
