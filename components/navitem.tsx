@@ -7,7 +7,7 @@ import {
 
 export default function NavItem({ href, innerText }){
     return (
-        <NavigationMenuItem className="p-4 hover:bg-black hover:text-white">
+        <NavigationMenuItem className="p-4 hover:bg-black hover:text-white active:bg-black active:text-white">
             <Link href={href}>
                 {innerText}
             </Link>

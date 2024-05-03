@@ -17,7 +17,7 @@ import NavItem from "./navitem";
 
 export default function Navbar() {
     return (
-        <NavigationMenu className="px-4">
+        <NavigationMenu className="mb-4">
             <NavigationMenuList>
                 <NavItem href="/" innerText="Home"/>
                 <NavItem href="/article/all" innerText="Articles"/>

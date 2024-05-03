@@ -14,6 +14,7 @@ export default function About() {
                 <li>☑ Full-text search of comments</li>
                 <li>☑ Full-text search of article titles</li>
                 <li>☑ Browse articles by tag</li>
+                <li className="text-gray-500">☐ Sortable results</li>
                 <li className="text-gray-500">☐ Unified search interface</li>
                 <li className="text-gray-500">☐ Foldable comments</li>
                 <li className="text-gray-500">☐ Keyboard navigation</li>

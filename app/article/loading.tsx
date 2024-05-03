@@ -2,6 +2,6 @@
 
 export default function Loading() {
     return (
-        <p>Loading ...</p>
+        <div className="m-8">Loading ...</div>
     )
 }
