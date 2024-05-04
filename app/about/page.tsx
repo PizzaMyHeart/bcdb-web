@@ -1,7 +1,7 @@
 export default function About() {
     return (
         <div className="p-8">
-            <h1 className="text-2xl my-8">What's this?</h1>
+            <h1 className="text-2xl my-8">What&apos;s this?</h1>
             <p>
                 Full-text search of over 2 million user comments on book-related pages on <a href="https://www.theguardian.com/books" target="_blank">the Guardian</a>.
             </p>
