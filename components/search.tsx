@@ -3,7 +3,6 @@ import React from 'react';
 import { InstantSearch, SearchBox, InfiniteHits, Stats } from 'react-instantsearch';
 import { instantMeiliSearch } from '@meilisearch/instant-meilisearch';
 import Hit from './Hit';
-import '@/envConfig'
 
 let meilisearchUrl: string = process.env.NEXT_PUBLIC_MEILISEARCH_URL!;
 

@@ -3,12 +3,12 @@
 import { InstantSearch, SearchBox, Hits, Highlight, Snippet, InfiniteHits, Stats, SortBy, Configure } from 'react-instantsearch';
 import { instantMeiliSearch } from '@meilisearch/instant-meilisearch';
 
+let meilisearchUrl: string = process.env.NEXT_PUBLIC_MEILISEARCH_URL!;
 
 const { searchClient } = instantMeiliSearch(
-  "http://localhost:7700",
-  "16316eefe4e7d1e96e0fbc0ca26e9e559017d30034dad46cf0541815ea0387a2"
+  meilisearchUrl,
+  "16316eefe4e7d1e96e0fbc0ca26e9e559017d30034dad46cf0541815ea0387a2",
 );
-
 
 export default async function allArticlesDescCommentCount({ params }) {
     return (
