@@ -10,6 +10,7 @@ export default async function allArticlesWithTag({ params }) {
     return (
         <div>
         <div className="mb-4 ml-4">Tag: <Badge>{articles[0].tag_name}</Badge></div>
+        <div className="mb-4 ml-4">{articles.length} results found.</div>
         {articles.map(article => {
             return (
                 <div key={article.article_id} className="p-4">

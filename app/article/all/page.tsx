@@ -44,28 +44,7 @@ export default async function allArticlesDescCommentCount({ params }) {
                 ]}/>
             */}
                 <InfiniteHits hitComponent={ArticleHit}/>
-            </InstantSearch>
-            
-            {/*
-            <div className="container mx-auto py-10">
-                <DataTable columns={columns} data={data}/>
-            </div>
-    */}
-            
-        
-        {/*data.map(article => {
-            return (
-                <div key={article.article_id}>
-                    <a href={`/article/${article.article_id}`}>{article.title}</a>
-                    <p>{article.comments.toString()} comments</p>
-                    <p>{article.date.toLocaleString()}</p>
-                    <br/>
-                </div>
-            )
-            
-        })*/}
-    
-
+            </InstantSearch>  
         </div>
     );
 }
