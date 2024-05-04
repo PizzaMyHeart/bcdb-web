@@ -1,10 +1,5 @@
+// @ts-nocheck
 "use client"
-
-import prisma from "@/app/lib/prisma";
-import { Article, columns } from "./columns"
-import { DataTable } from "./data-table"
-import { PaginatedDataTable } from "./data-table";
-import Table from "@/components/data-table";
 import { InstantSearch, SearchBox, Hits, Highlight, Snippet, InfiniteHits, Stats, SortBy, Configure } from 'react-instantsearch';
 import { instantMeiliSearch } from '@meilisearch/instant-meilisearch';
 

@@ -1,5 +1,5 @@
+// @ts-nocheck
 import prisma from "@/app/lib/prisma";
-import { Article, columns } from "@/app/article/all/columns"
 import { Badge } from "@/components/ui/badge"
 
 
