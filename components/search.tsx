@@ -1,10 +1,14 @@
+// @ts-ignore
 import React from 'react';
-import { InstantSearch, SearchBox, Hits, Highlight, Snippet, InfiniteHits, Stats } from 'react-instantsearch';
+import { InstantSearch, SearchBox, InfiniteHits, Stats } from 'react-instantsearch';
 import { instantMeiliSearch } from '@meilisearch/instant-meilisearch';
 import Hit from './Hit';
+import '@/envConfig'
+
+let meilisearchUrl: string = process.env.NEXT_PUBLIC_MEILISEARCH_URL!;
 
 const { searchClient } = instantMeiliSearch(
-  "http://localhost:7700",
+  meilisearchUrl,
   "16316eefe4e7d1e96e0fbc0ca26e9e559017d30034dad46cf0541815ea0387a2",
   {
     placeholderSearch: false
