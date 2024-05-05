@@ -27,7 +27,7 @@ const Search = () => (
         }}
         />
     <Stats />
-    <InfiniteHits hitComponent={Hit} />
+    <InfiniteHits hitComponent={Hit} showPrevious={false} classNames={{loadMore: "rounded-full bg-zinc-300 p-2 hover:bg-zinc-600 hover:text-white"}}/>
     
   </InstantSearch>
 );

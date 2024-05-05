@@ -12,7 +12,7 @@ const { searchClient } = instantMeiliSearch(
 
 export default async function allArticlesDescCommentCount({ params }) {
     return (
-        <div className="px-4">
+        <div className="px-4 pb-8">
             <InstantSearch 
                 indexName="articles" 
                 searchClient={searchClient}
@@ -38,7 +38,7 @@ export default async function allArticlesDescCommentCount({ params }) {
                         {label: "Most commented", value: "articles:num_comments:desc"}
                 ]}/>
             */}
-                <InfiniteHits hitComponent={ArticleHit}/>
+                <InfiniteHits hitComponent={ArticleHit} showPrevious={false} classNames={{loadMore: "rounded-full bg-zinc-300 p-2 hover:bg-zinc-600 hover:text-white"}}/>
             </InstantSearch>  
         </div>
     );
